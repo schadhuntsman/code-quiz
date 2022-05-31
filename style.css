@@ -1,0 +1,62 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    width: 100vw;
+    height: 100vw;
+
+    padding: 0;
+}
+
+.quiz-container {
+    background-color: rgb(101, 166, 241);
+    border-radius: 5px;
+    max-width: 70%;
+    max-height: 800px;
+    align-self: center;
+    padding: 15px;
+    box-shadow: 5px 10px 1px 0
+}
+
+.option-area {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 15px;
+}
+.button {
+   background-color:#ff8000;
+   border: 2px solid #000000;
+    color:rgb(87, 4, 4)
+    
+}
+.buttonChoices {
+    color:orange;
+    border: 5px;
+    margin: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.start-button {
+    background-color:rgba(248, 41, 0, 0.89);
+    border: 5px;
+    margin: 15px;
+    border: 2px solid #000000;
+    color:rgb(252, 249, 249);
+}
+
+.next-button {
+    background-color:rgba(248, 41, 0, 0.89);
+    border: 5px;
+    margin: 15px;
+    border: 2px solid #000000;
+    color:rgb(252, 249, 249);
+}
+
