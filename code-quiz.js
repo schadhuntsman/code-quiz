@@ -1,61 +1,79 @@
-var btnChoiceEl = document.getElementById('buttonChoices')
+var btnChoiceEl = document.getElementById('button-choices')
+var quizContainerEl = document.getElementById('questions-container')
 var questionEl = document.getElementById('question')
+var quizOptions = document.getElementById('answer-options')
 var strtButton = document.getElementById('start-quiz');
-var quizContainerEl = document.getElementById('quiz-container')
+
 var nxtButton = document.getElementById('next-button')
-//start button logic
+
+    //math.random is set to -.5 so that it's less than 0 or above 0 50% of the time
+let randomizer, displayedQuestions
+// const timer = document.createElement('div');
+// let time = 100;
+// timerEl.textContent = 0;
+
+// function countdown(time){
+//     timerEl.textContent = time;
+//     time--;
+//     countdownu(time);
+// }, 1000)
+// }
 strtButton.addEventListener('click',strtGame)
-nxtButton.addEventListener('click', () =>
-displayedQuestions++,
-nxtQuestion()
-)
+
 function strtGame() {
-//math.random is set to -.5 so that it's less than 0 or above 0 50% of the time
-var randomizer = quizQuestions.sort(() => Math.random() - .5)
+    
+    displayedQuestions = 0;
+    
+    var randomizer = quizQuestions.sort(() => Math.random() - .5)
+    nxtButton.addEventListener('click',() => {
+    displayedQuestions++,
+    nxtQuestion()
+})
+
 //start at 0 because we're starting at the fist question
-var displayedQuestions = 0;
-randomQstnDecider()
-console.log('awwwjisss')
+
+function nxtQuestion ()  {
+    quizReset()
+    displayQuestion(randomizer[displayedQuestions])
 }
 
+function displayQuestion(question) {
+    questionEl.innerText = question.question
+    question.answers.array.forEach(answers => {
+     btnChoiceEl = document.createElement('shownAnswrButtons') 
+     shownAnswrButtons.innerText = answers.text
+     shownAnswrButtons.classList.add('btn')
+    if (answers.correct) {
+      shownAnswrButtons.dataset.correct = answer.correct
+ }
+    shownAnswrButtons.addEventListener('click', chooseAnswer)   
+    quizOptions.appendChild(shownAnswrButtons)
+              
+})
 
-function randomQstnDecider ()  {
-    nxtQuestion(randomizer[displayedQuestions])
+function quizReset() {   
+    while (answerOptions.firstChild) {
+        answerOptions.removeChild
+        (answerOptions.firstChild)
+    }        
 }
 
-function nxtQuestion() {
-    shownQuestion(randomizer[displayedQuestions])
-    quizContainerEl.appendChild(genButton)
-}
-
-function shownQuestion()  {
-    questionEl.innerText = quizQuestions.quizQuestions
-    quizQuestions.quizAnswers.array.forEach(quizAnswers => {
-       btnChoiceEl = document.createElement('genButton') 
-       genButton.innerText = quizAnswers.text
-       genButton.classList.add('btn')
-       if (quizAnswers.correct) {
-           button.dataset.correct = answer.correct
-       }
-       genButton.addEventListener('click', chooseAnsw)             
-    })
-}
-
-function quizReset() {
-    while (btnChoiceEl.firstChild) {
-        btnChoiceEl.removeChild
-        (btnChoiceEl.firstChild)
-    }
-     
+    displayQuestion(randomizer[displayedQuestions])
     
 }
 
-function chooseAnsw(e) {
-    chosenBtn = e.target
-    correct = chosenBtn.dataset.correct
-    decideRightorWrong(document.body, correct)
-    Array.from(btnChoiceEl.children).forEach(button => {
-        decideRightorWrong(button, button.dataset.correct)
+function chooseAnswer()  {
+    questionEl.innerText = quizQuestions.quizQuestions
+//    
+}
+
+
+function chooseAnswer(e) {
+  const  chosenBtn = e.target
+  const correct = chosenBtn.dataset.correct
+  setStatusClass(document.body, correct)
+    Array.from(quizOptions.children).forEach(shownAnswrButtons => {
+        setStatusClass(shownAnswrButtons, shownAnswrButtons.dataset.correct)
     })
 }
 if (randomizer.length > displayedQuestions + 1) {
@@ -63,30 +81,24 @@ if (randomizer.length > displayedQuestions + 1) {
         strtButton.innerText = 'Try Again'
     }
 
-function decideRightorWrong(element, correct) {
+function setStatusClass(element, correct) {
     clearDecision(element)
     if (correct) {
         element.classList.add('You got it!')
-    } else {
+    } if (correct=false) {
         element.classList.add('Nope, sorry...')
     }
 } 
 
-function clearRightWrong(element) {
-    element.classList.remove('You got it!')
-} else {
-    element.classList.remove('Nope, sorry...')
-}
-
-
-
-var quizQuestions = 
+const quizQuestions = [
     {
-        quizQuestions: 'What is over 9000?',
-        quizAnswers: [
+        question: 'What is over 9000?',
+        answers: [
             {text: 'napa', correct: false },
             {text: 'goku', correct: true },
             {text: 'vegeta', correct: false},
             {text: 'krillin lol', correct: false}
         ]
-    }
+}
+]
+}
