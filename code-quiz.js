@@ -4,25 +4,25 @@ const quizContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
 const btnChoiceEl = document.getElementById('answer-options')
 
-(function() {
-    var sec = 60;
-    function startTimer(){
-        console.log('timer suppose to go')
-        var timer = setInterval(function(){
-            sec--;
-            document.getElementById('timerDisplay').innerHTML='00:'+sec;
-            if (sec < 0) {
-                clearInterval(timer);
-                alert("Time is up!")
-            }
-        }, 1000);
-    }
-    document.getElementById('incorrect').addEventListener('click', function() {
-        sec -= 5;
-        document.getElementById('timerDisplay').innerHTML='00:'+sec;
-    });
-    startTimer();
-})();
+// (function() {
+//     var sec = 60;
+//     function startTimer(){
+//         console.log('timer suppose to go')
+//         var timer = setInterval(function(){
+//             sec--;
+//             document.getElementById('timerDisplay').innerHTML='00:'+sec;
+//             if (sec < 0) {
+//                 clearInterval(timer);
+//                 alert("Time is up!")
+//             }
+//         }, 1000);
+//     }
+//     document.getElementById('incorrect').addEventListener('click', function() {
+//         sec -= 5;
+//         document.getElementById('timerDisplay').innerHTML='00:'+sec;
+//     });
+//     startTimer();
+// })();
 
 let randomizer, displayedQuestions
 
