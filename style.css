@@ -21,13 +21,22 @@ body {
 .parent-container {
     background-color: rgb(101, 166, 241);
     border-radius: 5px;
-    max-width: 85%;
+    max-width: 90%;
     max-height: 800px;
     align-self: center;
     padding: 15px;
     box-shadow: 5px 10px 1px 0
 }
-
+.question-text {
+    background-color: darkblue;
+    color: aliceblue;
+    text-align: center;
+    font-weight: bolder;
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 5px;
+    font-size: larger;
+}
 .btn-grid {
     color:azure;
     margin: 25px;
@@ -46,7 +55,15 @@ body {
    position: relative;
     border-radius:10px; 
 }
-
+.btn {
+    color:rgb(29, 29, 29);
+    background-color:#ff8000;
+    border: 2px solid #000000;
+    font-weight: 800;
+    z-index: 900;
+    position: relative;
+     border-radius:10px; 
+}
 .btn-grid:hover {
     border-color:aliceblue;
     color:darkblue
